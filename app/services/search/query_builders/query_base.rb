@@ -25,9 +25,10 @@ module Search
       def add_sort
         sort_key = @params[:sort_by] || self.class::DEFAULT_PARAMS[:sort_by]
         sort_direction = @params[:sort_direction] || self.class::DEFAULT_PARAMS[:sort_direction]
-        @body[:sort] = {
-          sort_key => sort_direction
-        }
+        @body[:sort] = [
+          { sort_key => sort_direction },
+          "_score",
+        ]
       end
 
       def set_size
