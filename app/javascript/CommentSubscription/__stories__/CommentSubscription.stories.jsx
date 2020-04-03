@@ -8,4 +8,9 @@ export default {
   decorator: [withKnobs],
 };
 
-export const Default = () => <CommentSubscription />;
+export const Default = () => (
+  <div>
+    <CommentSubscription onSubscribe={action('subscribed!')} />
+    <p>Hello</p>
+  </div>
+);
